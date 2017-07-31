@@ -10,19 +10,19 @@ describe('Apple JWT Creation', () => {
   const publicKey = fs.readFileSync('test/test.public.pem');
 
   it('should contain the specified key ID', () => {
-    const token = appleJWT(keyID, teamID, privateKey);
+    const token = appleJWT.generate(keyID, teamID, privateKey);
     const decoded = jwt.decode(token, {complete: true});
     expect(decoded.header.kid).to.equal(keyID);
   });
 
   it('should contain the specified team ID', () => {
-    const token = appleJWT(keyID, teamID, privateKey);
+    const token = appleJWT.generate(keyID, teamID, privateKey);
     const decoded = jwt.verify(token, publicKey);
     expect(decoded.iss).to.equal(teamID);
   });
 
   it('should expire in six months', () => {
-    const token = appleJWT(keyID, teamID, privateKey);
+    const token = appleJWT.generate(keyID, teamID, privateKey);
     const decoded = jwt.verify(token, publicKey);
     const expiresIn = decoded.exp - decoded.iat;
     expect(expiresIn).to.equal(15777000);

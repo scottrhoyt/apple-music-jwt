@@ -24,5 +24,10 @@
   "homepage": "https://github.com/scottrhoyt/apple-music-jwt#readme",
   "dependencies": {
     "njwt": "^0.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0",
+    "secure-random": "^1.1.1"
   }
 }

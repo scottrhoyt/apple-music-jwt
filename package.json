@@ -1,0 +1,25 @@
+{
+  "name": "apple-music-jwt",
+  "version": "0.1.0",
+  "description": "A library for creating JWTs for accessing the Apple Music API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottrhoyt/apple-music-jwt.git"
+  },
+  "keywords": [
+    "Apple",
+    "Music",
+    "API",
+    "JWT"
+  ],
+  "author": "Scott Hoyt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottrhoyt/apple-music-jwt/issues"
+  },
+  "homepage": "https://github.com/scottrhoyt/apple-music-jwt#readme"
+}

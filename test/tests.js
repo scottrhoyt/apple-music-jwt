@@ -1,24 +1,30 @@
-var assert = require('assert');
-var chai = require('chai');
-var expect = chai.expect;
+var expect = require('chai').expect;
 var appleJWT = require('../src/index.js');
-var secureRandom = require('secure-random');
-var nJwt = require('njwt');
+var fs = require('fs');
+var jwt = require('jsonwebtoken');
 
 describe('Apple JWT Creation', () => {
   const keyID = 'testKeyID';
   const teamID = 'testTeamID';
-  const signingKey = secureRandom(256, {type: 'Buffer'});
+  const privateKey = fs.readFileSync('test/test.private.pem');
+  const publicKey = fs.readFileSync('test/test.public.pem');
 
   it('should contain the specified key ID', () => {
-    const token = appleJWT(keyID, teamID, signingKey);
+    const token = appleJWT(keyID, teamID, privateKey);
+    const decoded = jwt.decode(token, {complete: true});
+    expect(decoded.header.kid).to.equal(keyID);
+  });
 
-    nJwt.verify(token, signingKey, function(err, verifiedJwt) {
-      if (err) {
-        assert.fail(err);
-      } else {
-        expect(verifiedJwt.header.kid).to.equal(keyID);
-      }
-    });
+  it('should contain the specified team ID', () => {
+    const token = appleJWT(keyID, teamID, privateKey);
+    const decoded = jwt.verify(token, publicKey);
+    expect(decoded.iss).to.equal(teamID);
+  });
+
+  it('should expire in six months', () => {
+    const token = appleJWT(keyID, teamID, privateKey);
+    const decoded = jwt.verify(token, publicKey);
+    const expiresIn = decoded.exp - decoded.iat;
+    expect(expiresIn).to.equal(15777000);
   });
 });

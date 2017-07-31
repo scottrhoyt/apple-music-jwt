@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/scottrhoyt/apple-music-jwt#readme",
   "dependencies": {
-    "njwt": "^0.4.0"
+    "jsonwebtoken": "^7.4.1"
   },
   "devDependencies": {
     "chai": "^4.1.0",

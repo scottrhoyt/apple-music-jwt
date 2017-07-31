@@ -1,18 +1,14 @@
-var nJwt = require('njwt');
+var jwt = require('jsonwebtoken');
 
-module.exports = function(keyID, teamID, secret) {
-  var claims = {
-    'iss': teamID,
+module.exports = function(keyID, teamID, secret, callback) {
+  var options = {
+    issuer: teamID,
+    expiresIn: 15777000, // Max time specified by Apple (6 months)
+    algorithm: 'ES256',
+    header: {
+      kid: keyID
+    }
   }
 
-  var jwt = nJwt.create(claims, 'secret', 'ES256');
-
-  // Set exp claim to 6 months from now
-  jwt.setExpiration(new Date().getTime() + 15777000);
-
-  jwt.setHeader('kid', keyID);
-
-  var token = jwt.compact();
-
-  return token;
+  return jwt.sign({}, secret, options, callback)
 }

@@ -1,28 +1,28 @@
 # master
 
-## Breaking
+### Breaking
 
 * None
 
-## Improvements
+### Improvements
 
 * None
 
-## Fixes
+### Fixes
 
 * None
 
 # 0.1.1
 
-## Breaking
+### Breaking
 
 * None
 
-## Improvements
+### Improvements
 
 * None
 
-## Fixes
+### Fixes
 
 * Move `prompt` and `yargs` to dependencies to fix global CLI install.
 

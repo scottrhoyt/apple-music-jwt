@@ -3,6 +3,12 @@
 A µ-library and command line tool for generating Apple Music API developer
 tokens.
 
+[![version](https://img.shields.io/npm/v/apple-music-jwt.svg)](https://www.npmjs.org/package/apple-music-jwt)
+[![status](https://travis-ci.org/scottrhoyt/apple-music-jwt.svg)](https://travis-ci.org/scottrhoyt/apple-music-jwt)
+[![coverage](https://img.shields.io/coveralls/scottrhoyt/apple-music-jwt.svg)](https://coveralls.io/github/scottrhoyt/apple-music-jwt)
+[![dependencies](https://david-dm.org/scottrhoyt/apple-music-jwt.svg)](https://david-dm.org/scottrhoyt/apple-music-jwt)
+[![devDependencies](https://david-dm.org/scottrhoyt/apple-music-jwt/dev-status.svg)](https://david-dm.org/scottrhoyt/apple-music-jwt#info=devDependencies)
+
 ## Installation
 
 ```sh

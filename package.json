@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "bin": "./bin/apple-music-jwt",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
+    "coveralls": "^2.13.1",
     "mocha": "^3.5.0",
+    "nyc": "^11.1.0",
     "prompt": "^1.0.0",
     "secure-random": "^1.1.1",
     "yargs": "^8.0.2"

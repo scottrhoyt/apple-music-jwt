@@ -8,3 +8,13 @@ node_js:
 cache:
   directories:
     - "node_modules"
+
+deploy:
+  provider: npm
+  email: scottrhoyt@gmail.com
+  api_key:
+    secure: mJ9odPUzqHM1QQGmfJgShExJwgCQLYK6ZE/A+hhqdfdOqsrCAYdKIuO58F5PZ8ezW/B7KrO0Fgqjszo5xbuko6LhZFZz+cbX/owTlCMq/F6mRDbOij4tIhBOvFbne4eZ+L/0mVkQt94ZH0GKRgwIvSsU1rpZHmMfHcvnxFWjFZX7qI3lsbl8U5c9/uaTEjZncZK8XVpHmj3QwvfVgWRBnldNal6YDQDkeoEKaxtoQhKOPO6pIWwDYvMTIv5meDCshANpUtCWE6JZmQC9zgtVIjgaL2K3MfnKumZczt2CzA//xpOW2xEs2Q11EfzeT1j4RRnhmHa+S9IjkxLmsKENwk3DxwCc9vlI+mHsKOk8wnd16c+cODiMUeVDhkeSBtfE1ZlXaQgDlf+ygt5WbMoSiH8Q6K6TiX+dQn/++dOPipNKlz+nfD+NmTX9LiL4p1DBp5Mdy9nSWIX0U9w4nxFVliWq2PjTSUQ09esCIBIQX642sTXgTstsMaGY7gSj4l6tv4oNbIcH7gu3Br2RKmdDKzDIR7daNJLAnLKcwc/7vuDvkZSQh7FV0JAoaXaPdhErtQYFRPxEadq+5NEEjQg3l7AlEYkTgz36y6VdYr49CQkQDfvzz6MhJN5ePQ2+l2TaW1OacdtexCGdwagEae5Y01btKYE/0JA6kEswt7Bn27w=
+  on:
+    tags: true
+    node: "lts/*"
+    repo: scottrhoyt/apple-music-jwt

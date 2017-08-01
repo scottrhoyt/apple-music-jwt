@@ -2,15 +2,29 @@
 
 ## Breaking
 
-  * None
+* None
 
 ## Improvements
 
-  * None
+* None
 
 ## Fixes
 
-  * None
+* None
+
+# 0.1.1
+
+## Breaking
+
+* None
+
+## Improvements
+
+* None
+
+## Fixes
+
+* Move `prompt` and `yargs` to dependencies to fix global CLI install.
 
 # 0.1.0
 

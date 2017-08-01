@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A library for creating JWTs for accessing the Apple Music API.",
   "main": "src/index.js",
+  "bin": "./bin/apple-music-jwt",
   "scripts": {
     "test": "mocha"
   },
@@ -28,6 +29,8 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "mocha": "^3.5.0",
-    "secure-random": "^1.1.1"
+    "prompt": "^1.0.0",
+    "secure-random": "^1.1.1",
+    "yargs": "^8.0.2"
   }
 }

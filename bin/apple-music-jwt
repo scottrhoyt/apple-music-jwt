@@ -1,0 +1,85 @@
+#!/usr/bin/env node
+
+var appleJWT = require('../src/index.js');
+var prompt = require('prompt');
+var fs = require('fs');
+
+const keyIDDescription = 'The music key ID from your developer account.';
+const teamIDDescription = 'Your developer account team ID.';
+const secretDescription = 'The private key associated with your music key (base64 encoded string).'
+
+function getCommandLineOpts() {
+  return require('yargs')
+    .usage('Usage: $0 [options]')
+    .command('*', 'Generate an Apple Music Developer Token')
+    .example('$0 -k <keyID> -t <teamID> -s <secret>', 'Generate an Apple Music Developer Token')
+    .alias('k', 'keyID')
+    .nargs('k', 1)
+    .describe('k', keyIDDescription)
+    .alias('t', 'teamID')
+    .nargs('t', 1)
+    .describe('t', teamIDDescription)
+    .alias('s', 'secret')
+    .nargs('s', 1)
+    .describe('s', secretDescription)
+    .alias('f', 'file')
+    .describe('f', 'The file containing your secret key')
+    .nargs('f', 1)
+    .help('h')
+    .alias('h', 'help')
+    .argv;
+}
+
+function promptForInfo(override, schema) {
+  prompt.override = override;
+  prompt.start();
+  return new Promise((resolve, reject) => {
+    prompt.get(schema, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};
+
+function main() {
+  const argv = getCommandLineOpts();
+
+  var schema = {
+    properties: {
+      keyID: {
+        description: keyIDDescription,
+        required: true
+      },
+      teamID: {
+        description: teamIDDescription,
+        required: true
+      },
+      secret: {
+        description: secretDescription,
+        ask: function() {
+          // only ask for secret if a file wasn't provided
+          return argv.file == undefined;
+        }
+      }
+    }
+  };
+
+  promptForInfo(argv, schema)
+    .then(result => {
+      var secret = result.secret;
+
+      // If a user provided a secret file, use that instead
+      if (argv.file) {
+        secret = fs.readFileSync(argv.file);
+      }
+
+      const token = appleJWT.generate(result.keyID, result.teamID, secret);
+      console.log('Token: ', token);
+    })
+    .catch(console.error)
+}
+
+main();

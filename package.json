@@ -16,7 +16,9 @@
     "Apple",
     "Music",
     "API",
-    "JWT"
+    "JWT",
+    "Token",
+    "Developer"
   ],
   "author": "Scott Hoyt",
   "license": "MIT",

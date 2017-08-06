@@ -6,6 +6,20 @@
 
 ### Improvements
 
+* None
+
+### Fixes
+
+* None
+
+# 0.1.2
+
+### Breaking
+
+* None
+
+### Improvements
+
 * Add NPM keywords
 
 ### Fixes

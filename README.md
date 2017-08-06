@@ -24,7 +24,7 @@ var jwt = require('apple-music-jwt');
 
 var keyID = '<music-key-id>';
 var teamID = '<dev_team_id>';
-var secret = `<base64_encoded_secret>`; // can also be a `Buffer` loaded from a file
+var secret = '<base64_encoded_secret>'; // can also be a `Buffer` loaded from a file
 
 var token = jwt.generate(keyID, teamID, secret);
 ```

@@ -6,11 +6,11 @@
 
 ### Improvements
 
-* None
+* Add NPM keywords
 
 ### Fixes
 
-* None
+* Typo in Readme
 
 # 0.1.1
 

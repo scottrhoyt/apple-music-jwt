@@ -14,7 +14,7 @@ var jwt = require('jsonwebtoken');
 module.exports.generate = function(keyID, teamID, secret, callback) {
   var options = {
     issuer: teamID,
-    expiresIn: 15777000, // Max time specified by Apple (6 months)
+    expiresIn: '182d', // Max time specified by Apple (6 months)
     algorithm: 'ES256',
     header: {
       kid: keyID

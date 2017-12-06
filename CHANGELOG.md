@@ -12,6 +12,20 @@
 
 * None
 
+# 0.2.0
+
+### Breaking
+
+* Update JSONWebToken and Yargs.
+
+### Improvements
+
+* None
+
+### Fixes
+
+* None
+
 # 0.1.3
 
 ### Breaking

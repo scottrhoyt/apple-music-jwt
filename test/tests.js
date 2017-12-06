@@ -25,6 +25,6 @@ describe('Apple JWT Creation', () => {
     const token = appleJWT.generate(keyID, teamID, privateKey);
     const decoded = jwt.verify(token, publicKey);
     const expiresIn = decoded.exp - decoded.iat;
-    expect(expiresIn).to.equal(15777000);
+    expect(expiresIn).to.equal(15724800);
   });
 });

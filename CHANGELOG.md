@@ -10,7 +10,7 @@
 
 ### Fixes
 
-* None
+* Fix expire time for JWT. Previous time was too long by about 14 hours.
 
 # 0.1.2
 

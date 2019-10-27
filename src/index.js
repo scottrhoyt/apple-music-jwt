@@ -16,9 +16,7 @@ module.exports.generate = function(keyID, teamID, secret, callback) {
     issuer: teamID,
     expiresIn: '182d', // Max time specified by Apple (6 months)
     algorithm: 'ES256',
-    header: {
-      kid: keyID
-    }
+    keyid: keyID
   }
 
   return jwt.sign({}, secret, options, callback)

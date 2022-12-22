@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/scottrhoyt/apple-music-jwt#readme",
   "dependencies": {
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^9.0.0",
     "prompt": "^1.0.0",
     "yargs": "^10.0.3"
   },
